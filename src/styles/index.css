@@ -39,6 +39,7 @@
     position: relative;
     top: 15px;
     padding-top: 1px;
+    box-shadow: 0 0 20px 40px rgba(213, 213, 51, 1);
 
 }
 #orange {
