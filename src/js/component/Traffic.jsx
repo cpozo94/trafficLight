@@ -1,5 +1,10 @@
 import React from "react";
 
+const colors = {
+    red: "",
+    yellow:"",
+    green: "",
+}
 
 const Traffic = () => {
 
