@@ -19,6 +19,12 @@ const Traffic = () => {
     });
   };
 
+//el nuevo color, las propiedades las hemos metido en css
+  const [Purple, setPurple] = useState(false);
+  const NewColor = () => {
+    setPurple(!Purple);
+  };
+
   //usamos useEffect para que al cargar la página uno de los colores esté definido.
   useEffect(() => {
     setColor({
@@ -27,6 +33,26 @@ const Traffic = () => {
       green: "",
     });
   }, []);
+
+  const colores = {
+    red: "selected",
+    yellow: "selected",
+    green: "selected"
+  }
+  
+  const keys = Object.keys(colores);
+  const randomIndex = Math.floor(Math.random() * keys.length);
+  const randomColor = keys[randomIndex];
+  
+  console.log(randomColor);
+  
+
+
+ 
+
+
+  
+  
 
   // pongo de base "light red + colors.red, que está vacío, por lo que por defecto de primeras tendría
   return (
@@ -44,9 +70,13 @@ const Traffic = () => {
           className={"light green " + colors.green}
           onClick={() => handleClick("green")}
         ></div>
+        {Purple && (
+          <div className={"light purple "}></div>
+        )}
       </div>
-      <button>Aleatorio</button>
-      <button>Nuevo color</button>
+      <button className="button" onClick={NewColor}>
+        Nuevo color
+      </button>
     </div>
   );
 };
