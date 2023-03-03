@@ -7,10 +7,12 @@ import Button from "./button.jsx";
 
 //create your first component
 const Home = () => {
+	
+	
 	return (
 		<div className="text-center">
 			<Traffic />
-			<Button />
+			
 		</div>
 	);
 };

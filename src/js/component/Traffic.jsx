@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const initialColors = {
   red: "",
@@ -19,8 +19,16 @@ const Traffic = () => {
     });
   };
 
+  //usamos useEffect para que al cargar la página uno de los colores esté definido.
+  useEffect(() => {
+    setColor({
+      red: "",
+      yellow: "selected",
+      green: "",
+    });
+  }, []);
 
-  // pongo de base "light red + colors.red, que está vacío, por lo que por defecto de primeras tendría el color.
+  // pongo de base "light red + colors.red, que está vacío, por lo que por defecto de primeras tendría
   return (
     <div className="container">
       <div className="semaforo">
@@ -37,6 +45,8 @@ const Traffic = () => {
           onClick={() => handleClick("green")}
         ></div>
       </div>
+      <button>Aleatorio</button>
+      <button>Nuevo color</button>
     </div>
   );
 };
