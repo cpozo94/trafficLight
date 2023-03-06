@@ -23,6 +23,10 @@ const Traffic = () => {
   const [Purple, setPurple] = useState(false);
   const NewColor = () => {
     setPurple(!Purple);
+    const semaforoElement = document.querySelector(".semaforo");
+    if (semaforoElement) {
+    semaforoElement.style.height = Purple ? "550px" : "760px";
+  }
   };
 
   //usamos useEffect para que al cargar la página uno de los colores esté definido.
@@ -34,17 +38,9 @@ const Traffic = () => {
     });
   }, []);
 
-  const colores = {
-    red: "selected",
-    yellow: "selected",
-    green: "selected"
-  }
+
   
-  const keys = Object.keys(colores);
-  const randomIndex = Math.floor(Math.random() * keys.length);
-  const randomColor = keys[randomIndex];
-  
-  console.log(randomColor);
+ 
   
 
 
