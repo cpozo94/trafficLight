@@ -19,14 +19,27 @@ const Traffic = () => {
     });
   };
 
+
+  function colorChange() {
+    if (colors.red === "selected") {
+      setColor({ ...initialColors, yellow: "selected" });
+    } else if (colors.yellow === "selected") {
+      setColor({ ...initialColors, green: "selected" });
+    } else if (colors.green === "selected") {
+      setColor({ ...initialColors, purple: "selected" });
+    } else if (colors.purple === "selected") {
+      setColor({ ...initialColors, red: "selected" });
+    }
+  }
+  
 //el nuevo color, las propiedades las hemos metido en css
   const [Purple, setPurple] = useState(false);
   const NewColor = () => {
     setPurple(!Purple);
     const semaforoElement = document.querySelector(".semaforo");
     if (semaforoElement) {
-    semaforoElement.style.height = Purple ? "550px" : "760px";
-  }
+      semaforoElement.style.height = Purple ? "550px" : "760px";
+    }
   };
 
   //usamos useEffect para que al cargar la página uno de los colores esté definido.
@@ -37,11 +50,6 @@ const Traffic = () => {
       green: "",
     });
   }, []);
-
-
-  
- 
-  
 
 
  
@@ -70,9 +78,10 @@ const Traffic = () => {
           <div className={"light purple "}></div>
         )}
       </div>
-      <button className="button" onClick={NewColor}>
+      <button className="btn btn-dark mx-3 btn-lg" onClick={NewColor}>
         Nuevo color
       </button>
+      <button className="btn btn-dark mx-3 btn-lg mt-1" onClick={colorChange}>Cambio de color</button>
     </div>
   );
 };
